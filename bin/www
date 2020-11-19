@@ -1,0 +1,10 @@
+#!/usr/bin/node
+
+const app = require('../app')
+const debug = require('debug')('app')
+
+const port = process.env.PORT || 8080
+
+app.listen(port, () => {
+  debug(`app listening on http://localhost:${port}`)
+})
