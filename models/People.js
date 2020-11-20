@@ -8,4 +8,4 @@ const PeopleSchema = new mongoose.Schema({
   date_of_death: Date
 })
 
-module.exports = mongoose.model('Book', PeopleSchema)
+module.exports = mongoose.model('People', PeopleSchema)
