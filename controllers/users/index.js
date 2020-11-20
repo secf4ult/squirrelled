@@ -13,8 +13,8 @@ passport.use(
       User.findOne({ email }, (err, user) => {
         if (err) done(err)
         if (user) {
-          user.verifyPassword(password, (err2, isMatch) => {
-            if (err2) done(err2, false)
+          user.verifyPassword(password, (err, isMatch) => {
+            if (err) done(err, false)
             if (isMatch) done(null, user)
             else done(null, false)
           })
