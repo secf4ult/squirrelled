@@ -9,7 +9,6 @@ const passport = require('passport')
 require('dotenv').config()
 
 const router = require('./controllers')
-// eslint-disable-next-line
 const db = require('./db')
 
 const app = express()
@@ -21,7 +20,11 @@ app.use(
   session({
     resave: false,
     secret: process.env.SESSION_SECRET,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+      maxAge: Number.parseInt(process.env.SESSION_MAX_AGE) || 86400
+    }
+    // store: db
   })
 )
 app.use(passport.initialize())
@@ -30,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'dist')))
 
 // error handler
 app.use((err, req, res, next) => {
-  debug(err)
+  debug('App error:', err)
 })
 
 // load routers
