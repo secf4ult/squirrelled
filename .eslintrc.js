@@ -2,14 +2,18 @@ module.exports = {
   env: {
     commonjs: true,
     es2021: true,
-    node: true
+    node: true,
+    mocha: true
   },
-  extends: [
-    'standard'
-  ],
+  extends: ['standard'],
   parserOptions: {
     ecmaVersion: 12
   },
-  rules: {
-  }
+  rules: {},
+  overrides: [
+    {
+      files: ['tests/**/*.spec.js'],
+      rules: { 'no-unused-vars': false }
+    }
+  ]
 }

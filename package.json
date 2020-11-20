@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --recursive './tests/**/*.js'",
     "debug": "nodemon ./bin/www",
     "debug:app": "DEBUG=app* npm run debug",
     "debug:session": "DEBUG=express-session npm run debug",
@@ -16,11 +16,13 @@
   "author": "secf4ult",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^7.13.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
+    "mocha": "^8.2.1",
     "node-pre-gyp": "^0.16.0",
     "nodemon": "^2.0.6",
     "prettier": "^2.1.2"
